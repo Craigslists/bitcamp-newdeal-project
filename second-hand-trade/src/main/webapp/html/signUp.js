@@ -91,7 +91,11 @@ if (check) {
 	    	
 	    	if(result.status ==='success'){
 	    		console.log("성공")
-	    		location.href=`${serverApiAddr}/index.html`;
+	    		   swal("회원가입이 완료 되었습니다.", "이메일 인증후 로그인해주세요.");
+				  setTimeout(function () {
+					  location.href=`${serverApiAddr}/index.html`;
+				  }, 1000);
+	    		
 	    	}else{
 	    		alert('실패');
 	    		console.log(result.message)
@@ -99,8 +103,9 @@ if (check) {
 	    	}
 	        console.log(result);
 	    }, 'json')
-	    .fail(() => {
-	        alert('회원 가입 중에 오류 발생!')
+	    .fail(() => { 
+	    	swal("오류!!!!", "회원 가입 중에 오류 발생!.", "success");
+	        //alert('회원 가입 중에 오류 발생!')
 	    });
 }
 });

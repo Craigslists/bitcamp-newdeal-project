@@ -19,14 +19,14 @@ function getFileInfo(fullName) {
 	var fileLink;
 	//이미지타입인경우
 	if (checkImageType(fullName) || checkVideoType(fullName)) {
-		imgsrc = `${serverApiAddr}/json/upload//displayFile?fileName=` + fullName;
+		imgsrc = `${serverApiAddr}/json/upload/displayFile?fileName=` + fullName;
 		fileLink = fullName.substr(14);
-
+		console.log(fileLink)
 		var front = fullName.substr(0, 12); // /2015/07/01/ 
 		var end = fullName.substr(14);
-
-		getLink = `${serverApiAddr}/json/upload//displayFile?fileName=` + front + end;
 		
+		getLink = `${serverApiAddr}/json/upload/displayFile?fileName=` + front + end;
+		console.log(getLink)
 		if(checkImageType(fullName)) fileType = "image";
 		else fileType ="video";
 

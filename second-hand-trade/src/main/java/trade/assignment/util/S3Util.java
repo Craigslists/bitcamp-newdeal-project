@@ -1,6 +1,10 @@
 package trade.assignment.util;
 
 
+import com.amazonaws.auth.AWSCredentials;
+import com.amazonaws.auth.AWSCredentialsProvider;
+import com.amazonaws.auth.AWSStaticCredentialsProvider;
+import com.amazonaws.auth.profile.ProfileCredentialsProvider;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
@@ -25,12 +29,14 @@ public class S3Util {
     public String getBucketName() {
 		return bucketName;
 	}
-
+    
+    AWSCredentials credentials;
 	private AmazonS3 conn;
 
     public S3Util() {
-
-        this.conn = AmazonS3ClientBuilder.standard()
+    	
+    		credentials = new ProfileCredentialsProvider().getCredentials();
+        this.conn = AmazonS3ClientBuilder.standard().withCredentials(new AWSStaticCredentialsProvider(credentials))
                 .withRegion(Regions.AP_NORTHEAST_2)
                 .build();
     }

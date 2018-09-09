@@ -36,7 +36,7 @@ public class MemberServiceImpl implements MemberService {
 		sendMail.setText(
 				new StringBuffer().append("<h1>메일인증</h1>")
 //				.append("<a href='http://192.168.0.9:8080/second-hand-trade/json/member/emailConfirm?email=")
-				.append("<a href='http://192.168.0.9:8080/second-hand-trade/html/emailConfirm.html?email=").append(member.getEmail())
+				.append("<a href='http://localhost:8080/second-hand-trade/html/emailConfirm.html?email=").append(member.getEmail())
 				.append("' target='_blank'>이메일 인증 확인</a>")
 				.toString());
 		sendMail.setFrom("sososososo@gmail.com", "서어비스센터 ");

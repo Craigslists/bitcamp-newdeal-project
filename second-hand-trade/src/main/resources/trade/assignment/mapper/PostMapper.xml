@@ -25,6 +25,7 @@
 		on
 		plsa.USERID = pu.mno
         and plsa.postid = pu.pid
+        
 	</select>
 
        
